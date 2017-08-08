@@ -1,5 +1,8 @@
-﻿using PointBlank.API.Collections;
+﻿using System.Collections.Generic;
+using System.Linq;
+using PointBlank.API.Collections;
 using PointBlank.API.Plugins;
+using PointBlank.API.Unturned.Player;
 
 namespace UserEssentials
 {
@@ -14,7 +17,6 @@ namespace UserEssentials
             { "CPM_Help", "Private message another person." },
             { "CPM_Usage", " <user> <message>" },
             { "CPM_Sent", "Message sent to {0}." },
-            { "CPM_Goof", "{0} is not a player." },
             { "CReply_Help", "Reply to the last person to private message you." },
             { "CReply_Usage", " <message>" },
             { "CReply_Sent", "Replied to {0}." },
@@ -26,16 +28,26 @@ namespace UserEssentials
             #region TPA
             
             { "CTPA_Help", "Request/cancel/accept/deny a teleport to another player." },
-            { "CTPA_Usage", "<player/accept/cancel/deny>" },
-            { "CTPA_Goof", "{0} is not a player." },
+            { "CTPA_Usage", "<player/accept/cancel/deny> <player to accept/cancel/deny>" },
+            { "CTPA_Goof", "{0} did not request to teleport to you." },
+            { "CTPA_YouGoof", "You did not request to teleport to {0}" },
             { "CTPA_TooMany", "You have already requested a teleport to {0}." },
             { "CTPA_Sent", "Requested to teleport to {0}." },
             { "CTPA_Request", "{0} Requested to teleport to you." },
             { "CTPA_Self", "You may not teleport to yourself." },
             { "CTPA_Lonely", "You have no teleport requests." },
-            { "CTPA_Prone", "You may not accept teleport requests while proned" }
+            { "CTPA_Prone", "You may not accept teleport requests while proned." },
+            { "CTPA_Accepted", "You accepted {0}'s teleport request." },
+            { "CTPA_RAccepted", "{0} accepted your teleport request." },
+            { "CTPA_Pathetic", "{0} denied your teleport request." },
+            { "CTPA_Rekt", "You denied {0}'s teleport request." },
+            { "CTPA_None", "You've sent no teleport requests." },
+            { "CTPA_Cancelled", "You cancelled your teleport request to {0}." },
+            { "CTPA_Cancelled_All", "You cancelled all teleport requests." },
             
             #endregion
+            
+            { "Player_Goof", "{0} is not a player." }
         };
 
         public override ConfigurationList Configurations => new ConfigurationList();

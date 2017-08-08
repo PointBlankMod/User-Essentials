@@ -12,9 +12,9 @@ namespace UserEssentials.PrivateMessaging
         
         public override string[] DefaultCommands => new[] { "reply", "r" };
 
-        public override string Help => Main.Instance.Translations["CReply_help"];
+        public override string Help => Main.Instance.Translations["CReply_Help"];
 
-        public override string Usage => Commands[0] + Main.Instance.Translations["CReply_usage"];
+        public override string Usage => Commands[0] + Main.Instance.Translations["CReply_Usage"];
 
         public override string DefaultPermission => "privatemessaging.send";
 
@@ -24,26 +24,26 @@ namespace UserEssentials.PrivateMessaging
         
         #endregion
 
-        public override void Execute(PointBlankPlayer executor, string[] args)
+        public override void Execute(PointBlankPlayer Executor, string[] Arguments)
         {
-            if(!executor.Metadata.ContainsKey("LastPM"))
+            if(!Executor.Metadata.ContainsKey("LastPM"))
             {
-                UnturnedChat.SendMessage(executor, Main.Instance.Translations["CReply_lonely"]);
+                UnturnedChat.SendMessage(Executor, Main.Instance.Translations["CReply_Lonely"]);
                 return;
             }
             
-            UnturnedPlayer Player = (UnturnedPlayer)executor.Metadata["LastPM"];
+            UnturnedPlayer Player = (UnturnedPlayer)Executor.Metadata["LastPM"];
             
             if (UnturnedPlayer.IsServer(Player) || !UnturnedPlayer.IsInServer(Player))
             {
-                executor.Metadata.Remove("LastPM");
-                UnturnedChat.SendMessage(executor, Main.Instance.Translations["CReply_goof"]);
+                Executor.Metadata.Remove("LastPM");
+                UnturnedChat.SendMessage(Executor, Main.Instance.Translations["CReply_Goof"]);
                 return;
             }
             
-            UnturnedChat.SendMessage(Player, args[0]);
-            UnturnedChat.SendMessage(executor, Main.Instance.Translate("CReply_sent", Player.CharacterName));
-            Player.Metadata.Add("LastPM", executor);
+            UnturnedChat.SendMessage(Player, Arguments[0]);
+            UnturnedChat.SendMessage(Executor, Main.Instance.Translate("CReply_Sent", Player.CharacterName));
+            Player.Metadata.Add("LastPM", Executor);
         }
     }
 }

@@ -12,9 +12,9 @@ namespace UserEssentials.PrivateMessaging
         
         public override string[] DefaultCommands => new [] { "pm", "tell", "whisper" };
 
-        public override string Help => Main.Instance.Translations["CPM_help"];
+        public override string Help => Main.Instance.Translations["CPM_Help"];
 
-        public override string Usage => Commands[0] + Main.Instance.Translations["CPM_usage"];
+        public override string Usage => Commands[0] + Main.Instance.Translations["CPM_Usage"];
 
         public override string DefaultPermission => "privatemessaging.send";
 
@@ -22,19 +22,19 @@ namespace UserEssentials.PrivateMessaging
         
         #endregion
 
-        public override void Execute(PointBlankPlayer executor, string[] args)
+        public override void Execute(PointBlankPlayer Executor, string[] Arguments)
         {
-            if (!UnturnedPlayer.TryGetPlayer(args[0], out UnturnedPlayer Player))
+            if (!UnturnedPlayer.TryGetPlayer(Arguments[0], out UnturnedPlayer Player))
             {
-                UnturnedChat.SendMessage(executor, Main.Instance.Translate("CPM_goof", args[0]));
+                UnturnedChat.SendMessage(Executor, Main.Instance.Translate("Player_Goof", Arguments[0]));
                 return;
             }
             
-            UnturnedChat.SendMessage(Player, args[1]);
-            UnturnedChat.SendMessage(executor, Main.Instance.Translate("CPM_sent", Player.CharacterName));
+            UnturnedChat.SendMessage(Player, Arguments[1]);
+            UnturnedChat.SendMessage(Executor, Main.Instance.Translate("CPM_sent", Player.CharacterName));
             
-            if (!UnturnedPlayer.IsServer(executor))
-                Player.Metadata.Add("LastPM", executor);
+            if (!UnturnedPlayer.IsServer(Executor))
+                Player.Metadata.Add("LastPM", Executor);
         }
     }
 }
