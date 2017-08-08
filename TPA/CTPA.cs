@@ -231,7 +231,9 @@ namespace UserEssentials.TPA
         
         public void RemoveTPARequest(UnturnedPlayer Player, ulong Requester)
         {
-            List<ulong> Requests = (List<ulong>)Player.Metadata.FirstOrDefault(pair => pair.Key == "TPA_Requests").Value;
+            if (!Player.Metadata.ContainsKey("TPA_Requests")) return;
+            
+            List<ulong> Requests = (List<ulong>)Player.Metadata["TPA_Requests"];
 
             if (!Requests.Contains(Requester)) return;
 
@@ -246,7 +248,9 @@ namespace UserEssentials.TPA
 
         public void AddTPARequest(UnturnedPlayer Player, ulong Requester)
         {
-            List<ulong> Requests = (List<ulong>)Player.Metadata.FirstOrDefault(pair => pair.Key == "TPA_Requests").Value;
+            if (!Player.Metadata.ContainsKey("TPA_Requests")) return;
+            
+            List<ulong> Requests = (List<ulong>)Player.Metadata["TPA_Requests"];
 
             if (Requests.Contains(Requester)) return;
             
