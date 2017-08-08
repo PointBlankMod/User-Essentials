@@ -7,24 +7,38 @@ namespace UserEssentials
     {
         #region Overrides
         
-        public override TranslationList Translations => new TranslationList()
+        public override TranslationList Translations => new TranslationList
         {
             #region Private Messaging
             
-            { "CPM_help", "Private message another person." },
-            { "CPM_usage", " <user> <message>" },
-            { "CPM_sent", "Message sent to {0}." },
-            { "CPM_goof", "{0} is not a player." },
-            { "CReply_help", "Reply to the last person to private message you." },
-            { "CReply_usage", " <message>" },
-            { "CReply_sent", "Replied to {0}." },
-            { "CReply_lonely", "There is nobody to reply to." },
-            { "CReply_goof", "Recipient left the server." }
+            { "CPM_Help", "Private message another person." },
+            { "CPM_Usage", " <user> <message>" },
+            { "CPM_Sent", "Message sent to {0}." },
+            { "CPM_Goof", "{0} is not a player." },
+            { "CReply_Help", "Reply to the last person to private message you." },
+            { "CReply_Usage", " <message>" },
+            { "CReply_Sent", "Replied to {0}." },
+            { "CReply_Lonely", "There is nobody to reply to." },
+            { "CReply_Goof", "Recipient left the server." },
+            
+            #endregion
+            
+            #region TPA
+            
+            { "CTPA_Help", "Request/cancel/accept/deny a teleport to another player." },
+            { "CTPA_Usage", "<player/accept/cancel/deny>" },
+            { "CTPA_Goof", "{0} is not a player." },
+            { "CTPA_TooMany", "You have already requested a teleport to {0}." },
+            { "CTPA_Sent", "Requested to teleport to {0}." },
+            { "CTPA_Request", "{0} Requested to teleport to you." },
+            { "CTPA_Self", "You may not teleport to yourself." },
+            { "CTPA_Lonely", "You have no teleport requests." },
+            { "CTPA_Prone", "You may not accept teleport requests while proned" }
             
             #endregion
         };
 
-        public override ConfigurationList Configurations => new ConfigurationList() { };
+        public override ConfigurationList Configurations => new ConfigurationList();
 
         public override string Version => "1.0.0.0";
 

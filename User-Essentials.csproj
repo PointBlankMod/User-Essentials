@@ -61,6 +61,7 @@
     <Compile Include="Private Messaging\CPM.cs" />
     <Compile Include="Private Messaging\CReply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TPA\CTPA.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Libraries\Assembly-CSharp-firstpass.dll" />
