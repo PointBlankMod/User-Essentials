@@ -5,7 +5,6 @@ using PointBlank.API.Unturned.Chat;
 
 namespace UserEssentials.PrivateMessaging
 {
-    [PointBlankCommand("Reply", 1)]
     public class CReply : PointBlankCommand
     {
         #region Properties
@@ -21,6 +20,8 @@ namespace UserEssentials.PrivateMessaging
         public override EAllowedServerState AllowedServerState => EAllowedServerState.RUNNING;
 
         public override EAllowedCaller AllowedCaller => EAllowedCaller.PLAYER;
+        
+        public override int MinimumParams => 1;
         
         #endregion
 

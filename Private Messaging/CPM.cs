@@ -5,7 +5,6 @@ using PointBlank.API.Player;
 
 namespace UserEssentials.PrivateMessaging
 {
-    [PointBlankCommand("PM", 2)]
     public class CPM : PointBlankCommand
     {
         #region Properties
@@ -19,6 +18,8 @@ namespace UserEssentials.PrivateMessaging
         public override string DefaultPermission => "privatemessaging.send";
 
         public override EAllowedServerState AllowedServerState => EAllowedServerState.RUNNING;
+        
+        public override int MinimumParams => 2;
         
         #endregion
 

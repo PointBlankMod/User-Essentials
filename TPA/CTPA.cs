@@ -9,7 +9,6 @@ using SDG.Unturned;
 
 namespace UserEssentials.TPA
 {
-    [PointBlankCommand("TPA", 1)]
     public class CTPA : PointBlankCommand
     {
         #region Properties
@@ -25,6 +24,8 @@ namespace UserEssentials.TPA
         public override EAllowedServerState AllowedServerState => EAllowedServerState.RUNNING;
 
         public override EAllowedCaller AllowedCaller => EAllowedCaller.PLAYER;
+
+        public override int MinimumParams => 1;
 
         public override int DefaultCooldown => 1;
         
