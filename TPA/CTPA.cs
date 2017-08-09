@@ -6,7 +6,6 @@ using PointBlank.API.Player;
 using PointBlank.API.Unturned.Chat;
 using PointBlank.API.Unturned.Player;
 using SDG.Unturned;
-using Main = UserEssentials.Main;
 
 namespace UserEssentials.TPA
 {
@@ -26,6 +25,8 @@ namespace UserEssentials.TPA
         public override EAllowedServerState AllowedServerState => EAllowedServerState.RUNNING;
 
         public override EAllowedCaller AllowedCaller => EAllowedCaller.PLAYER;
+
+        public override int DefaultCooldown => 1;
         
         #endregion
 
@@ -81,7 +82,7 @@ namespace UserEssentials.TPA
                     {
                         UnturnedChat.SendMessage(Executor, Main.Instance.Translate("CTPA_Gone"));
 
-                        RemoveTPARequest(PExecutor, Requester);
+                        Utils.RemoveTPARequest(PExecutor, Requester);
                         
                         return;
                     }
@@ -127,7 +128,7 @@ namespace UserEssentials.TPA
                     UnturnedChat.SendMessage(PExecutor, Main.Instance.Translate("CTPA_Rekt", pRequester.CharacterName));
                     UnturnedChat.SendMessage(pRequester, Main.Instance.Translate("CTPA_Pathetic", PExecutor.CharacterName));
                     
-                    RemoveTPARequest(PExecutor, Requester);
+                    Utils.RemoveTPARequest(PExecutor, Requester);
                     break;
                     #endregion
                 #region Cancel
@@ -153,7 +154,7 @@ namespace UserEssentials.TPA
                             if (!((List<ulong>) Player.Metadata["TPA_Requests"]).Contains(PExecutor.SteamID.m_SteamID))
                                 continue;
                             
-                            RemoveTPARequest(Player, PExecutor.SteamID.m_SteamID);
+                            Utils.RemoveTPARequest(Player, PExecutor.SteamID.m_SteamID);
                             removed = true;
                         }
 
@@ -180,7 +181,7 @@ namespace UserEssentials.TPA
                             return;
                         }
 
-                        RemoveTPARequest(PotentialRequester, PExecutor.SteamID.m_SteamID);
+                        Utils.RemoveTPARequest(PotentialRequester, PExecutor.SteamID.m_SteamID);
                         UnturnedChat.SendMessage(Executor, Main.Instance.Translate("CTPA_Cancelled", PotentialRequester.CharacterName));
                     }
                     break;
@@ -222,42 +223,11 @@ namespace UserEssentials.TPA
                         return;
                     }
 
-                    AddTPARequest(Target, PExecutor.SteamID.m_SteamID);
+                    Utils.AddTPARequest(Target, PExecutor.SteamID.m_SteamID);
                     break;
                     
                     #endregion
             }
-        }
-        
-        public void RemoveTPARequest(UnturnedPlayer Player, ulong Requester)
-        {
-            if (!Player.Metadata.ContainsKey("TPA_Requests")) return;
-            
-            List<ulong> Requests = (List<ulong>)Player.Metadata["TPA_Requests"];
-
-            if (!Requests.Contains(Requester)) return;
-
-            Requests.Remove(Requester);
-
-            Player.Metadata.Remove("TPA_Requests");
-            
-            if (Requests.Count == 0) return;
-            
-            Player.Metadata.Add("TPA_Requests", Requests);
-        }
-
-        public void AddTPARequest(UnturnedPlayer Player, ulong Requester)
-        {
-            if (!Player.Metadata.ContainsKey("TPA_Requests")) return;
-            
-            List<ulong> Requests = (List<ulong>)Player.Metadata["TPA_Requests"];
-
-            if (Requests.Contains(Requester)) return;
-            
-            Requests.Add(Requester);
-
-            Player.Metadata.Remove("TPA_Requests");
-            Player.Metadata.Add("TPA_Requests", Requests);
         }
     }
 }
