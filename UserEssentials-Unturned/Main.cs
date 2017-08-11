@@ -6,7 +6,7 @@ using PointBlank.API.Unturned.Player;
 
 namespace UserEssentials
 {
-    public class Main : Plugin
+    public class Main : PointBlankPlugin
     {
         #region Overrides
         
