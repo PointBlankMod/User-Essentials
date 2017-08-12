@@ -53,12 +53,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Main.cs" />
-    <Compile Include="Private Messaging\CPM.cs" />
-    <Compile Include="Private Messaging\CReply.cs" />
+    <Compile Include="UserEssentials.cs" />
+    <Compile Include="Commands\PrivateMessage.cs" />
+    <Compile Include="Commands\Reply.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TPA\CTPA.cs" />
-    <Compile Include="TPA\Utils.cs" />
+    <Compile Include="Commands\TPA.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
