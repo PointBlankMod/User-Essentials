@@ -45,7 +45,10 @@ namespace UserEssentials.Commands
             
             UnturnedChat.SendMessage(Player, Executor.Get<UnturnedPlayer>() + ": " + Arguments[0]);
             UnturnedChat.SendMessage(Executor, Translate("Reply_Sent", Player));
-            Player.Metadata.Add("LastPM", Executor.Get<UnturnedPlayer>());
+            if (Player.Metadata.ContainsKey("LastPM"))
+                Player.Metadata["LastPM"] = Executor.Get<UnturnedPlayer>();
+            else
+                Player.Metadata.Add("LastPM", Executor.Get<UnturnedPlayer>());
         }
     }
 }

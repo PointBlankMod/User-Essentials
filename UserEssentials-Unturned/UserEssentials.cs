@@ -26,9 +26,17 @@ namespace UserEssentials
             #endregion
             
             #region TPA
-            { "TPA_Help", "Request/cancel/accept/deny a teleport to another player." },
-            { "TPA_Usage", " <player/accept/cancel/deny> <accept/cancel/deny>" },
-            
+            { "TPA_Help", "Request/accept/deny a teleport to another player." },
+            { "TPA_Usage", " <player/accept/deny/current> <accept/deny>" },
+            { "TPA_NoRequest", "You have no TPA requests!" },
+            { "TPA_Left", "The player has left the server!" },
+            { "TPA_Teleport", "Successfully teleported to {0}!" },
+            { "TPA_Accept", "{0} has accepted your TPA request!" },
+            { "TPA_Deny", "Request from {0} has been denied!" },
+            { "TPA_Denied", "Denied TPA request!" },
+            { "TPA_Current", "Current: {0}!" },
+            { "TPA_Request", "Request sent to {0}!" },
+            { "TPA_Requested", "TPA request from {0}!" },
             #endregion
         };
 
