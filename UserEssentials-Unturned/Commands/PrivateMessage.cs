@@ -36,9 +36,14 @@ namespace UserEssentials.Commands
             
             UnturnedChat.SendMessage(Player, UnturnedPlayer.GetName(Executor) + ": " + Arguments[1]);
             UnturnedChat.SendMessage(Executor, Translate("PrivateMessage_Sent", Player));
-            
+
             if (!UnturnedPlayer.IsServer(Executor))
-                Player.Metadata.Add("LastPM", Executor.Get<UnturnedPlayer>());
+            {
+                if (Player.Metadata.ContainsKey("LastPM"))
+                    Player.Metadata["LastPM"] = Executor.Get<UnturnedPlayer>();
+                else
+                    Player.Metadata.Add("LastPM", Executor.Get<UnturnedPlayer>());
+            }
         }
     }
 }
