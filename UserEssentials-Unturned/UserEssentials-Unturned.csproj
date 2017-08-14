@@ -7,8 +7,8 @@
     <ProjectGuid>{77ED5338-54EE-45D2-BCDC-DD8C27EE1E46}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>UserEssentials_Unturned</RootNamespace>
-    <AssemblyName>UserEssentials-Unturned</AssemblyName>
+    <RootNamespace>UserEssentials</RootNamespace>
+    <AssemblyName>UserEssentials</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
