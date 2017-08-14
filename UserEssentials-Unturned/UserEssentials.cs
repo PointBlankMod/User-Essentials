@@ -8,8 +8,7 @@ namespace UserEssentials
 {
     public class UserEssentials : PointBlankPlugin
     {
-        #region Overrides
-        
+        #region Properties
         public override TranslationList Translations => new TranslationList
         {
             { "PlayerNotFound", "Specified player has not been found!" },
@@ -38,19 +37,31 @@ namespace UserEssentials
             { "TPA_Request", "Request sent to {0}!" },
             { "TPA_Requested", "TPA request from {0}!" },
             #endregion
+
+            #region Home
+            { "Home_Help", "Teleports the user to their bed" },
+            { "Home_Stance", "Can't teleport to home while sitting/driving!" },
+            { "Home_NoBed", "No bed has been found!" },
+            { "Home_Delay", "Please wait {0} seconds." },
+            { "Home_Waiting", "Already waiting to teleport!" },
+            { "Home_Success", "Successfully teleported home!" },
+            #endregion
         };
 
-        public override ConfigurationList Configurations => new ConfigurationList();
+        public override ConfigurationList Configurations => new ConfigurationList()
+        {
+            { "Home_Delay_Seconds", 5 },
+        };
 
         public override string Version => "1.0.0.0";
 
         public override string VersionURL => "";
 
         public override string BuildURL => "";
+        #endregion
 
         public override void Load() { }
 
         public override void Unload() { }
-        #endregion
     }
 }
