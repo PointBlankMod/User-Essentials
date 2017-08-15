@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using PointBlank.API;
 using PointBlank.API.Commands;
 using PointBlank.API.Player;
 using PointBlank.API.Tasks;
@@ -63,6 +64,7 @@ namespace UserEssentials_Unturned.Commands
                 .Delay(TimeSpan.FromSeconds(delay))
                 .Action((task) =>
                 {
+                    PointBlankLogging.Log("Test!");
                     if (!UnturnedPlayer.IsInServer(player))
                         return;
 
