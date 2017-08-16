@@ -64,7 +64,6 @@ namespace UserEssentials_Unturned.Commands
                 .Delay(TimeSpan.FromSeconds(delay))
                 .Action((task) =>
                 {
-                    PointBlankLogging.Log("Test!");
                     if (!UnturnedPlayer.IsInServer(player))
                         return;
 
