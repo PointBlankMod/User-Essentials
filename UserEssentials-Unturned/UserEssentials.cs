@@ -55,9 +55,9 @@ namespace UserEssentials
 
         public override string Version => "1.0.0.0";
 
-        public override string VersionURL => "";
+        public override string VersionURL => "http://198.245.61.226/kr4ken/pointblank/useressentials/Version.txt";
 
-        public override string BuildURL => "";
+        public override string BuildURL => "http://198.245.61.226/kr4ken/pointblank/useressentials/UserEssentials.dll";
         #endregion
 
         public override void Load() { }
