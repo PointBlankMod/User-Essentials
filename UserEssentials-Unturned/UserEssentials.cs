@@ -9,7 +9,7 @@ namespace UserEssentials
     public class UserEssentials : PointBlankPlugin
     {
         #region Properties
-        public override TranslationList Translations => new TranslationList
+        public override TranslationList DefaultTranslations => new TranslationList
         {
             { "PlayerNotFound", "Specified player has not been found!" },
 
@@ -48,7 +48,7 @@ namespace UserEssentials
             #endregion
         };
 
-        public override ConfigurationList Configurations => new ConfigurationList()
+        public override ConfigurationList DefaultConfigurations => new ConfigurationList()
         {
             { "Home_Delay_Seconds", 5 },
         };
